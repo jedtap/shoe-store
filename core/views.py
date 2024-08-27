@@ -1,5 +1,3 @@
-import random
-
 from django.shortcuts import render, get_object_or_404
 from .models import Shoe
 
@@ -9,7 +7,8 @@ def home(request):
 
 
 def shop(request):
-    return render(request, "shop.html")
+    shoes = Shoe.objects.order_by('?')
+    return render(request, 'shop.html', {'shoes': shoes})
 
 def shoe_detail(request, pk):
     shoe = get_object_or_404(Shoe, pk=pk)
