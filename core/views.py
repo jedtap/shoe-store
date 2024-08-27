@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Shoe
 
@@ -10,9 +10,9 @@ def home(request):
 def shop(request):
     return render(request, "shop.html")
 
-
-def item(request):
-    return render(request, "item.html")
+def shoe_detail(request, pk):
+    shoe = get_object_or_404(Shoe, pk=pk)
+    return render(request, 'shoe_detail.html', {'shoe': shoe})
 
 
 def checkout(request):
