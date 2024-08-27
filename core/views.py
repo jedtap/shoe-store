@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+import random
 
+from django.shortcuts import render, get_object_or_404
 from .models import Shoe
 
 def home(request):
-    shoes = Shoe.objects.all()
+    shoes = Shoe.objects.order_by('?')[:6]
     return render(request, "home.html", {'shoes': shoes})
 
 
