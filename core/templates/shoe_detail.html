@@ -2,18 +2,19 @@
 {% block title %}{{ shoe.name }}{% endblock title %} 
 
 {% block content %}
-    picture
-    name, shoe type, dollars
-    add to cart
 
     <div class="container mx-auto py-8">
-        <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}" class="w-full h-auto">
-            <div class="p-4">
-                <h1 class="text-2xl font-bold">{{ shoe.name }}</h1>
-                <p class="text-gray-600">{{ shoe.shoe_type }}</p>
-                <p class="text-gray-800">${{ shoe.price_usd }}</p>
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row">
+            <div class="w-full md:w-1/2">
+                <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}" class="w-full h-auto">
+            </div>
+            <div class="w-full md:w-1/2 p-4">
+                <h1 class="text-2xl md:text-4xl font-bold">{{ shoe.name }}</h1>
+                <p class="text-gray-600 md:text-xl">{{ shoe.shoe_type }}</p>
+                <p class="text-gray-800 md:text-xl">${{ shoe.price_usd }}</p>
+                <button class="mt-4 bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-400">Add to Cart</button>
             </div>
         </div>
     </div>
+
 {% endblock %}
