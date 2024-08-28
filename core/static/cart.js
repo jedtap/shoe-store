@@ -25,3 +25,4 @@ function closeNotification() {
 
 
 document.getElementById('addToCartButton').addEventListener('click', handleButtonClick);
+document.getElementById('closeNotifButton').addEventListener('click', closeNotification);

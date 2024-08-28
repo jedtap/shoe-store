@@ -5,8 +5,8 @@
 {% block content %}
     <div id="notification" class="fixed top-5 right-5 bg-green-600 text-white p-4 rounded hidden z-10 md:top-5 md:right-5 flex items-center justify-between">
         <span>Shoes are added to cart</span>
-        <span class="material-symbols-outlined ml-4 cursor-pointer" onclick="closeNotification()">close</span>
-    </div>    
+        <span id="closeNotifButton" class="material-symbols-outlined ml-4 cursor-pointer">close</span>
+    </div>
 
     <div class="container mx-auto py-8">
         <div class="max-w-4xl mx-auto flex flex-col md:flex-row">
@@ -24,5 +24,5 @@
 
 
     <script src="{% static 'cart.js' %}"></script>
-    
+
 {% endblock %}
