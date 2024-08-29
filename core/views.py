@@ -15,8 +15,8 @@ def shoe_detail(request, pk):
     return render(request, 'shoe_detail.html', {'shoe': shoe})
 
 
-def checkout(request):
-    return render(request, "checkout.html")
+def cart(request):
+    return render(request, "cart.html")
 
 
 def order(request):
