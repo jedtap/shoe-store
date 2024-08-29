@@ -16,9 +16,9 @@ def shoe_detail(request, pk):
 
 
 def cart(request):
-    return render(request, "cart.html")
+    shoes = Shoe.objects.order_by('?')
+    return render(request, 'cart.html', {'shoes': shoes})
 
-
-def order(request):
-    return render(request, "order.html")
+def checkout(request):
+    return render(request, "checkout.html")
 
