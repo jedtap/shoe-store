@@ -17,15 +17,15 @@
                 <a href="{% url "home" %}" alt="home" class="text-3xl bebas hover:text-gray-800">TREADS</a>
                 <a href="{% url "shop" %}" alt="shop" class="text-xl hover:text-gray-800">Shop</a>
             </div>
-            <a href="{% url "cart" %}" alt="cart link" class="text-xl ml-auto relative">
+            <a href="{% url "cart" %}" alt="cart link" class="text-xl ml-auto relative" id="cart-icon">
                 <span class="material-symbols-outlined">shopping_cart</span>
                 <span class="absolute top-0 right-0 h-3 w-3 bg-red-500 rounded-full -mt-1 -mr-1 hidden" id="cart-indicator"></span>
             </a>            
         </header>
     </div>
     <main>
-        {% block content %} {% endblock content %}
         <script src="{% static 'cart-indicator.js' %}"></script>
+        {% block content %} {% endblock content %}
     </main>
     <footer class="text-center my-4">
         ⓒ 2024 Jed Tapiador. All rights reserved.

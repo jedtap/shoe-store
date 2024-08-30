@@ -1,9 +1,12 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 details
 
 pay now
 
 summary box
+
+<script src="{% static 'checkout.js' %}"></script>
+
 {% endblock %}
