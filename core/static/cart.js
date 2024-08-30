@@ -26,7 +26,10 @@ function getCSRF(name) {
 
 function updateCart(shoes) {
     const cartContainer = document.getElementById('cart-items-container');
+    const totalElement = document.getElementById('cart-total');
     cartContainer.innerHTML = '';
+
+    let totalAmount = 0;
 
     shoes.forEach(shoe => {
         const shoeElement = document.createElement('div');
@@ -46,10 +49,22 @@ function updateCart(shoes) {
         `;
         cartContainer.appendChild(shoeElement);
 
+        totalAmount += parseFloat(shoe.price_usd);
+
         shoeElement.querySelector('.delete-btn').addEventListener('click', function() {
             cartContainer.removeChild(shoeElement);
             cartItems = cartItems.filter(id => id !== shoe.pk);
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            totalAmount -= parseFloat(shoe.price_usd);
+            updateTotal(totalAmount);
         });
     });
+
+    updateTotal(totalAmount);
+}
+
+function updateTotal(totalAmount) {
+    const totalElement = document.getElementById('cart-total');
+    totalElement.textContent = `Total: $${totalAmount}`;
 }
