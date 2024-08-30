@@ -1,8 +1,4 @@
 function resetCart() {
-    counter = 0;
-    localStorage.setItem('cartCounter', counter);
-    console.log(counter);
-
     const cartIndicator = document.getElementById('cart-indicator');
     cartIndicator.classList.add('hidden');
 
@@ -11,8 +7,8 @@ function resetCart() {
 }
 
 window.onload = function() {
-    const savedCounter = localStorage.getItem('cartCounter');
-    if (savedCounter && parseInt(savedCounter, 10) > 0) {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    if (cartItems.length > 0) {
         document.getElementById('cart-indicator').classList.remove('hidden');
     }
 };
