@@ -8,3 +8,13 @@ class Shoe(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Order(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.TextField()
+    contact = models.CharField(max_length=30)
+    items = models.JSONField(default=dict)
+
+    def __str__(self):
+        return self.name
