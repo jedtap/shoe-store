@@ -12,7 +12,10 @@ fetch('/cart/', {
     body: JSON.stringify({ cartItems: cartItems })
 })
 .then(response => response.json())
-.then(data => updateCart(data.shoes))
+.then(data => {
+    updateCart(data.shoes);
+    updateHiddenInput(data.shoes);
+});
 
 function getCSRF(name) {
     let csrf = null;
@@ -55,4 +58,14 @@ function updateCart(shoes) {
 function updateTotal(totalAmount) {
     const totalElement = document.getElementById('cart-total');
     totalElement.textContent = `Total: $${totalAmount} (${cartItems.length} items)`;
+}
+
+function updateHiddenInput(shoes) {
+    const itemsInput = document.getElementById('items-input');
+    const items = shoes.map(shoe => ({
+        pk: shoe.pk,
+        name: shoe.name,
+        price: shoe.price_usd,
+    }));
+    itemsInput.value = JSON.stringify(items);
 }
