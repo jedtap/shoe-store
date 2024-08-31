@@ -68,6 +68,12 @@ def new_order(request):
         order.contact = request.POST.get('contact')
         order.items = items
         order.save()
-        return redirect('home')
+        return redirect('success')
     else:
         return render(request, 'checkout.html')
+
+def success(request):
+    context = {
+        'home_url': reverse('home')
+    }
+    return render(request, 'success.html', context)

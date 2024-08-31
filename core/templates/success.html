@@ -1,0 +1,14 @@
+<!-- success.html -->
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Order Success{% endblock title %}
+
+{% block content %}
+    <div class="text-center">
+        <h1 class="text-3xl font-bold">Thank you for your order!</h1>
+        <p class="text-xl">Your order has been placed successfully.</p>
+        <p class="text-lg">You will be redirected to the home page in <span id="countdown">10</span> seconds.</p>
+    </div>
+
+    <script src="{% static 'success.js' %}"></script>
+{% endblock content %}
